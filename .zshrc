@@ -23,11 +23,16 @@ setopt append_history
 
 
 #=====================================================================================================
-# Extensions
+# Paths
 #=====================================================================================================
 # cargo
 [ -d $HOME/.cargo ] && . "$HOME/.cargo/env"
+export PATH="$HOME/.local/bin:$PATH"
 
+
+#=====================================================================================================
+# Extensions
+#=====================================================================================================
 # powerlevel10k
 if [[ ! -d ~/.zsh/plugins/powerlevel10k ]]; then
     [[ ! -d ~/.zsh/plugins ]] && mkdir -p ~/.zsh/plugins
@@ -65,7 +70,7 @@ command -v zoxide >/dev/null && eval "$(zoxide init zsh)"
 alias tv='tmux split-window -v'
 alias th='tmux split-window -h'
 alias ta='tmux attach -t'
-command -v exa &> /dec/null && alias ls='exa --icons'
+command -v exa &> /dev/null && alias ls='exa --icons'
 command -v z &> /dev/null && alias cd="z"
 command -v batcat &> /dev/null && alias cat="batcat"
 
