@@ -1,4 +1,5 @@
 sudo apt update
+sudo apt install -y build-essential
 
 # zsh
 [-f $HOME/.zshrc] && cp ~/.zshrc ~/.zsh/.zshrc.bak_$(date +%Y%m%d)
@@ -18,12 +19,12 @@ if command -v fzf &> /dev/null; then
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
     ~/.fzf/install
 fi
-command -v zoxide >/dev/null || curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
-command -v batcat &> /dev/null || sudo apt install bat
+command -v zoxide &>/dev/null || curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
+command -v batcat &> /dev/null || sudo apt -y install bat
 
 # chisel
 curl https://i.jpillora.com/chisel! | bash
 
 # tmux
-command -v tmux &> /dev/null || sudo apt install tmux
+command -v tmux &> /dev/null || sudo apt -y install tmux
 cp ./.tmux.conf $HOME/.tmux.conf

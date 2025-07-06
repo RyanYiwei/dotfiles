@@ -29,7 +29,7 @@ setopt append_history
 [ -d $HOME/.cargo ] && . "$HOME/.cargo/env"
 
 # powerlevel10k
-if [[ ! -d ~/.zsh/powerlevel10k ]]; then
+if [[ ! -d ~/.zsh/plugins/powerlevel10k ]]; then
     [[ ! -d ~/.zsh/plugins ]] && mkdir -p ~/.zsh/plugins
     git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.zsh/plugins/powerlevel10k
 fi
