@@ -1,11 +1,9 @@
 sudo apt update
 
 # zsh
-command -v zsh &> /dev/null || sudo apt install -y zsh
-chsh -s $(which zsh)
 [-f $HOME/.zshrc] && cp ~/.zshrc ~/.zsh/.zshrc.bak_$(date +%Y%m%d)
 cp ./.zshrc $HOME/.zshrc
-cp -r ./zsh $HOME/.zsh
+cp -r ./.zsh $HOME
 
 # Curl
 command -v curl &> /dev/null || sudo apt-get install curl
