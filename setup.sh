@@ -2,7 +2,7 @@ sudo apt update
 sudo apt install -y build-essential
 
 # zsh
-[-f $HOME/.zshrc] && cp ~/.zshrc ~/.zsh/.zshrc.bak_$(date +%Y%m%d)
+[ -f $HOME/.zshrc ] && cp ~/.zshrc ~/.zsh/.zshrc.bak_$(date +%Y%m%d)
 cp ./.zshrc $HOME/.zshrc
 cp -r ./.zsh $HOME
 
@@ -14,13 +14,30 @@ command -v curl &> /dev/null || sudo apt-get install curl
 . "$HOME/.cargo/env"
 
 # modern unix tools
-command -v exa &> /dev/null || cargo install exa
-if command -v fzf &> /dev/null; then
+if ! command -v exa &> /dev/null; then
+    cargo install exa
+else
+    echo "exa already installed."
+fi
+
+if ! command -v fzf &> /dev/null; then
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
     ~/.fzf/install
+else
+    echo "fzf already installed."
 fi
-command -v zoxide &> /dev/null || curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
-command -v batcat &> /dev/null || sudo apt -y install bat
+
+if ! command -v zoxide &> /dev/null; then 
+    curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
+else
+    echo "zoxide already installed."
+fi
+
+if ! command -v batcat &> /dev/null; then
+    sudo apt -y install bat
+else
+    echo "batcat already installed."
+fi
 
 # chisel
 curl https://i.jpillora.com/chisel! | bash
