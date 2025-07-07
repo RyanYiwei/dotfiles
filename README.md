@@ -34,6 +34,6 @@ Then logout and log back in (or restart the terminal) to apply the change.
 ```bash
 git clone https://github.com/RyanYiwei/dotfiles.git
 cd dotfiles
-sudo sh -x setup.sh
+sh -x setup.sh
 source $HOME/.zshrc
 ```
