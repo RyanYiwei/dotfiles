@@ -64,8 +64,11 @@ command -v zoxide >/dev/null && eval "$(zoxide init zsh)"
 
 
 #=====================================================================================================
-# Aliases
+# Aliases & Keybindings
 #=====================================================================================================
+
+bindkey -v
+bindkey -s 'jj' '\e'
 
 alias tv='tmux split-window -v'
 alias th='tmux split-window -h'
